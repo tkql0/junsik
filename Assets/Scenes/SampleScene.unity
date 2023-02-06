@@ -1576,10 +1576,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 934162578820610235, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300010, guid: 59b19808d0cb84645905e4922a232439, type: 3}
     - target: {fileID: 1915673270693582554, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_Name
       value: Ocean3
       objectReference: {fileID: 0}
+    - target: {fileID: 6928833751009071301, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300004, guid: 59b19808d0cb84645905e4922a232439, type: 3}
     - target: {fileID: 6994618555741383290, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1590,7 +1598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7735170153763507885, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.8
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7735170153763507885, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_LocalScale.y
@@ -2072,10 +2080,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 934162578820610235, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 59b19808d0cb84645905e4922a232439, type: 3}
     - target: {fileID: 1915673270693582554, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_Name
       value: Ocean2
       objectReference: {fileID: 0}
+    - target: {fileID: 6928833751009071301, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300004, guid: 59b19808d0cb84645905e4922a232439, type: 3}
     - target: {fileID: 6994618555741383290, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2086,7 +2102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7735170153763507885, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.8
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7735170153763507885, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_LocalScale.y
@@ -3491,10 +3507,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 934162578820610235, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 59b19808d0cb84645905e4922a232439, type: 3}
     - target: {fileID: 1915673270693582554, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_Name
       value: Ocean1
       objectReference: {fileID: 0}
+    - target: {fileID: 6928833751009071301, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300004, guid: 59b19808d0cb84645905e4922a232439, type: 3}
     - target: {fileID: 6994618555741383290, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3505,7 +3529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7735170153763507885, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.8
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7735170153763507885, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
       propertyPath: m_LocalScale.y
