@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    public GameObject enemy_prefab;
-    public GameObject enemy_attack_prefab;
-    public GameObject bait_prefab;
-    public GameObject fish_prefab;
+    [SerializeField]
+    GameObject enemy_prefab;
+    [SerializeField]
+    GameObject enemy_attack_prefab;
+    [SerializeField]
+    GameObject bait_prefab;
+    [SerializeField]
+    GameObject fish_prefab;
+    [SerializeField]
+    GameObject player_attack_prefab;
 
-    public Transform enemy_group;
-    public Transform enemy_attack_group;
-    public Transform bait_group;
-    public Transform fish_group;
-
-    GameObject[] item;
+    [SerializeField]
+    Transform enemy_group;
+    [SerializeField]
+    Transform enemy_attack_group;
+    [SerializeField]
+    Transform bait_group;
+    [SerializeField]
+    Transform fish_group;
+    [SerializeField]
+    Transform player_attack_group;
 
     GameObject[] enemy;
     GameObject[] enemy_attack;
     GameObject[] bait;
     public GameObject[] fish;
-
     GameObject[] player_attack;
 
     GameObject[] targetPool;
@@ -31,10 +40,7 @@ public class ObjectManager : MonoBehaviour
         enemy_attack = new GameObject[30];
         bait = new GameObject[10];
         fish = new GameObject[50];
-
-        player_attack = new GameObject[20];
-
-        item = new GameObject[100];
+        player_attack = new GameObject[30];
 
         Generate();
     }
@@ -61,6 +67,11 @@ public class ObjectManager : MonoBehaviour
             fish[i] = Instantiate(fish_prefab, fish_group);
             fish[i].SetActive(false);
         }
+        for (int i = 0; i < player_attack.Length; i++)
+        {
+            player_attack[i] = Instantiate(player_attack_prefab, player_attack_group);
+            player_attack[i].SetActive(false);
+        }
     }
 
     public GameObject MakeObj(Obj type)
@@ -78,6 +89,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case Obj.fish_:
                 targetPool = fish;
+                break;
+            case Obj.player_attack_:
+                targetPool = player_attack;
                 break;
         }
         for (int i = 0; i < targetPool.Length; i++)
