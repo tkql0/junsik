@@ -18,13 +18,13 @@ public class Ocean_PlayerControll : MonoBehaviour
 
         float DirY = playerPos.y - myPos.y;
 
-        if (DirY < 4)
+        if (DirY < 3)
         {
             GameManager.Instance.Player.isDie = true;
 
             GameManager.Instance.Player.Danger.SetActive(false);
         }
-        else if (DirY < 6)
+        else if (DirY < 5)
             GameManager.Instance.Player.Danger.SetActive(true);
         else
             GameManager.Instance.Player.Danger.SetActive(false);

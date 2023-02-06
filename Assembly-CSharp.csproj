@@ -68,6 +68,7 @@
     <Compile Include="Assets\2.Scripts\Start_UI.cs" />
     <Compile Include="Assets\2.Scripts\Relocation.cs" />
     <Compile Include="Assets\2.Scripts\Player_Scripts\Player_Attack_Hit.cs" />
+    <Compile Include="Assets\2.Scripts\Player_Scripts\Player_Slider.cs" />
     <Compile Include="Assets\2.Scripts\ObjectManager.cs" />
     <Compile Include="Assets\2.Scripts\Ocean_PlayerControll.cs" />
     <Compile Include="Assets\2.Scripts\CameraController.cs" />
@@ -75,7 +76,10 @@
     <Compile Include="Assets\2.Scripts\Player_Scripts\Player.cs" />
     <Compile Include="Assets\2.Scripts\Player_Scripts\Player_Fire.cs" />
     <Compile Include="Assets\2.Scripts\Stop_UI.cs" />
-    <Compile Include="Assets\2.Scripts\Player_Scripts\Player_Slider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Cave Platformer Tileset\readme.txt" />
+    <None Include="Assets\War\Slime Enemy - Pixel Art\README.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
