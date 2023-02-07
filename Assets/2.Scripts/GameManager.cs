@@ -38,8 +38,15 @@ public class GameManager : MonoSingleTon<GameManager>
         // 모든 작업 완료 후 초기화
     }
 
+    GameObject Player_Jump = null;
+
+    public GameObject jump;
+
     private void Update()
     {
+        if (Player_Jump != null)
+            Destroy(Player_Jump, 0.8f);
+
         SeaLevelPosDisY();
 
         if(re_fish > 0)
@@ -55,6 +62,8 @@ public class GameManager : MonoSingleTon<GameManager>
         // 게임 일시 정지
     }
 
+    int jump_count = 0;
+
     void SeaLevelPosDisY()
     {
         Vector3 playerPos = Player.transform.position;
@@ -64,6 +73,19 @@ public class GameManager : MonoSingleTon<GameManager>
         // 해수면과 플레이어의 높이 계산
         isSwimming = DirY <= 0 ? true : false;
         // 해수면보다 낮게있다면 수영중 판정
+
+        if (isSwimming == false && jump_count == 0)
+        {
+            jump_count = 1;
+            Player_Jump = Instantiate(jump, new Vector3(Player.transform.position.x,
+       Player.transform.position.y, Player.transform.position.z), jump.transform.rotation);
+        }
+        if (isSwimming == true && jump_count == 1)
+        {
+            jump_count = 0;
+            Player_Jump = Instantiate(jump, new Vector3(Player.transform.position.x,
+       Player.transform.position.y, Player.transform.position.z), jump.transform.rotation);
+        }
     }
 
     void spawn_fish()

@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Deep_Sea: {fileID: 4336405287867425565}
+  jump: {fileID: 1325474867723615953, guid: a4e1141379c874344989d0fa09ba4276, type: 3}
 --- !u!1 &4336405287867425565
 GameObject:
   m_ObjectHideFlags: 0

@@ -589,6 +589,8 @@ MonoBehaviour:
   enemy_search: {fileID: 2956889589349924825}
   Enemy_exp: {fileID: 4786755856869366158, guid: e4c333e71d4c82149bd2e9774794c6ec, type: 3}
   sense: 0
+  Hit_Obj1: {fileID: 6040178863054542434, guid: 0b34df1ccaa10ab43b8de1eb11adf4ce, type: 3}
+  Hit_Obj2: {fileID: 1179852950350462636, guid: 37183efd168471e4fa6b5e4cb9906624, type: 3}
 --- !u!1 &6525600916678540225
 GameObject:
   m_ObjectHideFlags: 0
