@@ -33,6 +33,11 @@ public partial class Player
         expSlider.value = 0;
     }
 
+    private void OnEnable()
+    {
+        hit_damage = null;
+    }
+
     void Lv_Up()
     {
         expSlider.value = 0;

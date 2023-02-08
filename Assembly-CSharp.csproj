@@ -78,7 +78,7 @@
     <Compile Include="Assets\2.Scripts\Stop_UI.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Cave Platformer Tileset\readme.txt" />
+    <None Include="Assets\Download_Folder\Cave Platformer Tileset\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
