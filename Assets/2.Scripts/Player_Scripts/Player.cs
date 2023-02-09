@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public partial class Player : MonoBehaviour
@@ -11,21 +10,32 @@ public partial class Player : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer sprite;
 
-    public float move_Maxspeed = 0;
-    public float jump_power = 30;
+    public float move_Maxspeed;
 
-    public bool isDie = false;
-    public bool isPlayer_Jump = false;
-    bool isLv_up = false;
+    bool isDie;
+    bool isPlayer_Jump;
 
     public GameObject Danger;
-
-    public GameObject GameOver_Panel;
+    [SerializeField]
+    GameObject GameOver_Panel;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        curHealth = maxHealth;
+
+        healthSlider.maxValue = maxHealth;
+        breathSlider.maxValue = maxBreath;
+        expSlider.maxValue = maxExperience;
+
+        healthSlider.value = maxHealth;
+        breathSlider.value = maxBreath;
+        expSlider.value = 0;
     }
 
     private void Update()
@@ -54,11 +64,6 @@ public partial class Player : MonoBehaviour
             Destroy(hit_damage, 0.5f);
     }
 
-    public void ReStrat()
-    {
-        SceneManager.LoadScene(0);
-    }
-
     void FixedUpdate()
     {
         if (GameManager.Instance.isSwimming == true && isDie == false)
@@ -82,6 +87,21 @@ public partial class Player : MonoBehaviour
     {
         if (inputVec.x != 0)
             sprite.flipX = inputVec.x > 0;
+    }
+
+    private void OnEnable()
+    {
+        hit_damage = null;
+
+        move_Maxspeed = 20;
+        isDie = false;
+        isPlayer_Jump = false;
+        isLv_up = false;
+    }
+
+    public void ReStrat()
+    {
+        SceneManager.LoadScene(0);
     }
 
     void Player_Move()

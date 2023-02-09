@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Assets\2.Scripts\GameManager.cs" />
     <Compile Include="Assets\2.Scripts\Enemy_Scripts\Enemy.cs" />
-    <Compile Include="Assets\2.Scripts\Enemy_Scripts\Enemy_Fire.cs" />
     <Compile Include="Assets\2.Scripts\Enemy_Scripts\Enemy_exp.cs" />
     <Compile Include="Assets\2.Scripts\Enemy_Scripts\Enemy_search.cs" />
     <Compile Include="Assets\2.Scripts\Singletone.cs" />
@@ -76,6 +75,7 @@
     <Compile Include="Assets\2.Scripts\Player_Scripts\Player.cs" />
     <Compile Include="Assets\2.Scripts\Player_Scripts\Player_Fire.cs" />
     <Compile Include="Assets\2.Scripts\Stop_UI.cs" />
+    <Compile Include="Assets\2.Scripts\Effect_Obj.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Download_Folder\Cave Platformer Tileset\readme.txt" />

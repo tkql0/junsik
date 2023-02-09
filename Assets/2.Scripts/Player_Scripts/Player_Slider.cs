@@ -17,29 +17,20 @@ public partial class Player
     float curExperience;
 
     int PlayerLv = 1;
-    public Text ExpTxt;
+    [SerializeField]
+    Text ExpTxt;
+    [SerializeField]
+    Slider healthSlider;
+    [SerializeField]
+    Slider breathSlider;
+    [SerializeField]
+    Slider expSlider;
 
-    public Slider healthSlider;
-    public Slider breathSlider;
-    public Slider expSlider;
+    bool isLv_up;
+    [SerializeField]
+    GameObject Hit_Obj;
 
-    private void Start()
-    {
-        curHealth = maxHealth;
-
-        healthSlider.maxValue = maxHealth;
-        breathSlider.maxValue = maxBreath;
-        expSlider.maxValue = maxExperience;
-
-        healthSlider.value = maxHealth;
-        breathSlider.value = maxBreath;
-        expSlider.value = 0;
-    }
-
-    private void OnEnable()
-    {
-        hit_damage = null;
-    }
+    GameObject hit_damage;
 
     void Lv_Up()
     {
@@ -50,11 +41,6 @@ public partial class Player
         isLv_up = false;
         curHealth = curHealth + 2;
     }
-
-
-    public GameObject Hit_Obj;
-
-    GameObject hit_damage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

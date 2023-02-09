@@ -7,19 +7,19 @@ public class Enemy_search : MonoBehaviour
     [SerializeField]
     float Player_Seatch_ange;
 
-    float Rate_Of_Fire = 1.5f;
-    float CoolDown_Time = 0f;
-    // 공격 쿨타임
-
-    public GameObject Danger;
+    float Rate_Of_Fire;
+    float CoolDown_Time;
 
     [SerializeField]
+    GameObject Danger;
+    [SerializeField]
     GameObject Lance;
+
     Transform Enemy;
+    [SerializeField]
+    LayerMask targetMask;
 
-    public LayerMask targetMask;
-
-    public RaycastHit2D[] inTarget;
+    RaycastHit2D[] inTarget;
 
     private void Start()
     {
@@ -40,6 +40,12 @@ public class Enemy_search : MonoBehaviour
         Search();
     }
 
+    private void OnEnable()
+    {
+        Rate_Of_Fire = 1.5f;
+        CoolDown_Time = 0f;
+    }
+
     void Search()
     { // 플레이어 탐색
         inTarget = Physics2D.CircleCastAll(transform.position + new Vector3(0, 1, 0), Player_Seatch_ange, Vector2.zero, 0, targetMask);
@@ -48,8 +54,7 @@ public class Enemy_search : MonoBehaviour
         { // 탐색된 오브젝트가 한라도 있는가?
             Danger.SetActive(true);
             CoolDown_Time += Time.deltaTime;
-            // 경고 오브젝트 활성화
-            // 공격 쿨타임 증가
+            // 경고 오브젝트 활성화 후 공격 쿨타임 증가
         }
         else
             Danger.SetActive(false);

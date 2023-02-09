@@ -19,7 +19,6 @@ public class GameManager : MonoSingleTon<GameManager>
     public GameObject SeaLevel;
     public GameObject GameStart_Panel;
 
-    public bool isMove = false;
     public bool isSwimming = false;
 
     public int player_prize = 0;

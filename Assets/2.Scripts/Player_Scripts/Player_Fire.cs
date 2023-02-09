@@ -10,11 +10,19 @@ public class Player_Fire : MonoBehaviour
 
     [SerializeField]
     float Player_Seatch_ange;
-    public LayerMask targetMask;
+    [SerializeField]
+    LayerMask targetMask;
 
-    public RaycastHit2D[] inTarget;
+    RaycastHit2D[] inTarget;
 
     Camera cam;
+
+    float time;
+
+    float Rate_Of_Fire;
+    float CoolTime;
+
+    bool mouse_click;
 
     private void Start()
     {
@@ -27,6 +35,9 @@ public class Player_Fire : MonoBehaviour
         LookAtMouse();
         Click_Time();
 
+        if (GameManager.Instance.isSwimming == true)
+            return;
+
         CoolTime += Time.deltaTime;
 
         if(Rate_Of_Fire < CoolTime)
@@ -36,16 +47,20 @@ public class Player_Fire : MonoBehaviour
         }
     }
 
-    public float time = 10f;
-    bool mouse_click = false;
-
-    float Rate_Of_Fire = 0.3f;
-    float CoolTime = 0f;
-
     private void FixedUpdate()
     {
         Search();
         nearTarget = GetNearest();
+    }
+
+    private void OnEnable()
+    {
+        time = 10f;
+
+        Rate_Of_Fire = 0.3f;
+        CoolTime = 0f;
+
+        mouse_click = false;
     }
 
     void Search()
@@ -118,16 +133,17 @@ public class Player_Fire : MonoBehaviour
             GameObject lance = GameManager.Instance.object_manager.MakeObj(Obj.player_attack_);
             lance.transform.position = Player.transform.position;
             lance.transform.rotation = Player.transform.rotation;
-            lance.GetComponent<Rigidbody2D>().velocity = lance.transform.right * time;
+            lance.GetComponent<Rigidbody2D>().velocity = lance.transform.up * time;
             // 플레이어의 공격을 활성화 후 마우스를 누른 시간 만큼의 힘으로 몬스터를 공격
         }
     }
 
     void LookAtMouse()
-    {
+    { // 공격이 바라볼 방향
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        // 마우스 좌표를 게임좌표로 변환
         Vector2 dir = new Vector2(mousePos.x - Player.position.x, mousePos.y - Player.position.y);
-
-        Player.right = dir.normalized;
+        Player.up = dir.normalized;
+        // 마우스의 방향을 구하고 정규화
     }
 }
