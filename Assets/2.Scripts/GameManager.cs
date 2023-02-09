@@ -49,7 +49,7 @@ public class GameManager : MonoSingleTon<GameManager>
 
         SeaLevelPosDisY();
 
-        if(re_fish > 0)
+        if(re_fish < 0)
         { // 생성될 경험치 몬스터의 갯수가 0보다 적다면
             spawn_fish();
             re_fish++;

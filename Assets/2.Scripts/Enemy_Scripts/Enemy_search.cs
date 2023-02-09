@@ -7,7 +7,15 @@ public class Enemy_search : MonoBehaviour
     [SerializeField]
     float Player_Seatch_ange;
 
+    float Rate_Of_Fire = 1.5f;
+    float CoolDown_Time = 0f;
+    // 공격 쿨타임
+
     public GameObject Danger;
+
+    [SerializeField]
+    GameObject Lance;
+    Transform Enemy;
 
     public LayerMask targetMask;
 
@@ -32,30 +40,6 @@ public class Enemy_search : MonoBehaviour
         Search();
     }
 
-    [SerializeField]
-    GameObject Lance;
-    Transform Enemy;
-
-    float Rate_Of_Fire = 1.5f;
-    float CoolDown_Time = 0f;
-    // 공격 쿨타임
-
-    void Auto_Attack()
-    { // 자동 공격
-        if (inTarget.Length == 0)
-            // 탐색된 오브젝트가 없는가?
-            return;
-        // 탐색된 오브젝트가 있다면
-        Vector3 targetPos = GameManager.Instance.Player.transform.position;
-        Vector3 dir = targetPos - Enemy.transform.position;
-        dir = dir.normalized;
-        // 본체와 플레이어의 방향을 계산 후 정렬화
-
-        GameObject lance = Instantiate(Lance, Enemy.position, Enemy.rotation);
-        lance.GetComponent<Rigidbody2D>().velocity = dir * 20;
-        // 몬스터의 공격을 
-    }
-
     void Search()
     { // 플레이어 탐색
         inTarget = Physics2D.CircleCastAll(transform.position + new Vector3(0, 1, 0), Player_Seatch_ange, Vector2.zero, 0, targetMask);
@@ -69,33 +53,24 @@ public class Enemy_search : MonoBehaviour
         }
         else
             Danger.SetActive(false);
-            // 아니라면 경고 오브젝트 비활성화
+        // 아니라면 경고 오브젝트 비활성화
     }
-    // 이 다음까지 갈 필요 있나?
 
-    //Transform GetNearest()
-    //{ // 가장 가까운 오브젝트
-    //    Transform result = null;
-    //    float diff = 7;
-    //    // 탐색 범위 반지름 7 오브젝트 초기화
+    void Auto_Attack()
+    { // 자동 공격
+        if (inTarget.Length == 0)
+            // 탐색된 오브젝트가 없는가?
+            return;
+        // 탐색된 오브젝트가 있다면
+        Vector3 targetPos = GameManager.Instance.Player.transform.position;
+        Vector3 dir = targetPos - Enemy.position;
+        dir = dir.normalized;
+        // 본체와 플레이어의 방향을 계산 후 정렬화
 
-    //    foreach (RaycastHit2D target in inTarget)
-    //    { // 탐색된 모든 오브젝트 만큼 반복
-    //        Vector3 myPos = transform.position;
-    //        Vector3 targetPos = target.transform.position;
-    //        float curdiff = Vector3.Distance(myPos,targetPos);
-    //        // 탐색된 오브젝트와 자신과의 거리를 계산
-
-    //        if(curdiff < diff)
-    //        { // 계산된 거리가 탐색 범위보다 작은가?
-    //            diff = curdiff;
-    //            result = target.transform;
-    //            // 탐색 범위를 계산된 범위로 대체 후
-    //            // 오브젝트 저장
-    //        }
-    //    }
-
-    //    return result;
-    //    // 저장된 오브젝트를 반환
-    //}
+        GameObject lance = GameManager.Instance.object_manager.MakeObj(Obj.enemy_attack_);
+        lance.transform.position = Enemy.position;
+        lance.transform.rotation = Enemy.rotation;
+        lance.GetComponent<Rigidbody2D>().velocity = dir * 20;
+        // 몬스터의 공격을 활성화 후 플레이어를 공격
+    }
 }

@@ -20,11 +20,11 @@ public class Ocean_PlayerControll : MonoBehaviour
 
         if (DirY < 3)
         {
-            GameManager.Instance.Player.isDie = true;
+            GameManager.Instance.Player.curHealth -= Time.deltaTime / 2;
 
             GameManager.Instance.Player.Danger.SetActive(false);
         }
-        else if (DirY < 5)
+        else if (DirY < 7)
             GameManager.Instance.Player.Danger.SetActive(true);
         else
             GameManager.Instance.Player.Danger.SetActive(false);

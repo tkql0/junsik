@@ -33,12 +33,12 @@ public class CameraController : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position,
             player.transform.position + CamPos, Time.fixedDeltaTime * speed);
-        if(GameManager.Instance.Player.isDie == true)
-        {
+        //if(GameManager.Instance.Player.isDie == true)
+        //{
             float ly = mapSize.y - height;
             float clampY = Mathf.Clamp(transform.position.y, -ly + center.y, ly + center.y);
 
             transform.position = new Vector3(transform.position.x, clampY, -10f);
-        }
+        //}
     }
 }

@@ -8,10 +8,6 @@ public partial class Player : MonoBehaviour
 {
     public Vector2 inputVec;
 
-    int PlayerLv = 1;
-
-    public Text ExpTxt;
-
     Rigidbody2D rigid;
     SpriteRenderer sprite;
 
@@ -44,24 +40,15 @@ public partial class Player : MonoBehaviour
         }
 
         if (healthSlider.value <= 0)
-        {
             isDie = true;
-        }
 
         if(isDie == true)
         {
             GameOver_Panel.SetActive(true);
-
             Time.timeScale = 0;
-            // 화면을 멈추는 것보다 몬스터들의 상호작용을 false로 바꾸자            return;
         }
 
         Player_Move();
-        //if (Input.GetButtonUp("Horizontal"))
-        //    rigid.velocity = new Vector2(rigid.velocity.normalized.x, rigid.velocity.y);
-        //if (Input.GetButtonUp("Vertical"))
-        //    rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.normalized.y);
-        // 급정지 기능 급하게 방향조절하면 산소게이지 떨어지게 할수도 있겠다
 
         if (hit_damage != null)
             Destroy(hit_damage, 0.5f);

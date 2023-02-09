@@ -7,14 +7,17 @@ public partial class Player
 {
     [SerializeField]
     float maxHealth;
-    float curHealth;
+    public float curHealth;
 
     [SerializeField]
     float maxBreath;
 
     [SerializeField]
     float maxExperience;
-    float curExperience = 0;
+    float curExperience;
+
+    int PlayerLv = 1;
+    public Text ExpTxt;
 
     public Slider healthSlider;
     public Slider breathSlider;
