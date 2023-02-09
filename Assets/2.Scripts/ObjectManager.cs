@@ -9,7 +9,7 @@ public class ObjectManager : MonoBehaviour
     [SerializeField]
     GameObject enemy_attack_prefab;
     [SerializeField]
-    GameObject bait_prefab;
+    GameObject enemy_exp_prefab;
     [SerializeField]
     GameObject fish_prefab;
     [SerializeField]
@@ -20,7 +20,7 @@ public class ObjectManager : MonoBehaviour
     [SerializeField]
     Transform enemy_attack_group;
     [SerializeField]
-    Transform bait_group;
+    Transform enemy_exp_group;
     [SerializeField]
     Transform fish_group;
     [SerializeField]
@@ -28,7 +28,7 @@ public class ObjectManager : MonoBehaviour
 
     GameObject[] enemy;
     GameObject[] enemy_attack;
-    GameObject[] bait;
+    GameObject[] enemy_exp;
     public GameObject[] fish;
     GameObject[] player_attack;
 
@@ -36,9 +36,9 @@ public class ObjectManager : MonoBehaviour
 
     private void Awake()
     {
-        enemy = new GameObject[30];
+        enemy = new GameObject[20];
         enemy_attack = new GameObject[30];
-        bait = new GameObject[10];
+        enemy_exp = new GameObject[60];
         fish = new GameObject[50];
         player_attack = new GameObject[30];
 
@@ -57,10 +57,10 @@ public class ObjectManager : MonoBehaviour
             enemy_attack[i] = Instantiate(enemy_attack_prefab, enemy_attack_group);
             enemy_attack[i].SetActive(false);
         }
-        for (int i = 0; i < bait.Length; i++)
+        for (int i = 0; i < enemy_exp.Length; i++)
         {
-            bait[i] = Instantiate(bait_prefab, bait_group);
-            bait[i].SetActive(false);
+            enemy_exp[i] = Instantiate(enemy_exp_prefab, enemy_exp_group);
+            enemy_exp[i].SetActive(false);
         }
         for (int i = 0; i < fish.Length; i++)
         {
@@ -84,8 +84,8 @@ public class ObjectManager : MonoBehaviour
             case Obj.enemy_attack_:
                 targetPool = enemy_attack;
                 break;
-            case Obj.bait_:
-                targetPool = bait;
+            case Obj.enemy_exp_:
+                targetPool = enemy_exp;
                 break;
             case Obj.fish_:
                 targetPool = fish;

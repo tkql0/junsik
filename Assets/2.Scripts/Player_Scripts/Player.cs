@@ -28,6 +28,7 @@ public partial class Player : MonoBehaviour
     private void Start()
     {
         curHealth = maxHealth;
+        curBreath = maxBreath;
 
         healthSlider.maxValue = maxHealth;
         breathSlider.maxValue = maxBreath;
@@ -41,6 +42,7 @@ public partial class Player : MonoBehaviour
     private void Update()
     {
         healthSlider.value = curHealth;
+        breathSlider.value = curBreath;
         expSlider.value = curExperience;
 
         if (expSlider.value == 100 && isLv_up == false)
@@ -64,12 +66,13 @@ public partial class Player : MonoBehaviour
             Destroy(hit_damage, 0.5f);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (GameManager.Instance.isSwimming == true && isDie == false)
+        if (isDie == false && GameManager.Instance.isSwimming == true)
         {
-            rigid.gravityScale = 0;
+            rigid.gravityScale = 0.2f;
             rigid.AddForce(inputVec.normalized, ForceMode2D.Impulse);
+            // 중력을 1만큼 주고 키보드를 누른 방향으로 힘을 주어 이동
 
             if (rigid.velocity.x > move_Maxspeed)
                 rigid.velocity = new Vector2(move_Maxspeed, rigid.velocity.y);
@@ -80,6 +83,7 @@ public partial class Player : MonoBehaviour
                 rigid.velocity = new Vector2(rigid.velocity.x, move_Maxspeed);
             else if (rigid.velocity.y < move_Maxspeed * (-1))
                 rigid.velocity = new Vector2(rigid.velocity.x, move_Maxspeed * (-1));
+            // 주어진 속도은 최고 속도를 넘기지 않게 제한
         }
     }
 
@@ -97,6 +101,7 @@ public partial class Player : MonoBehaviour
         isDie = false;
         isPlayer_Jump = false;
         isLv_up = false;
+        isDamage = false;
     }
 
     public void ReStrat()
@@ -107,32 +112,39 @@ public partial class Player : MonoBehaviour
     void Player_Move()
     {
         if (isDie == false)
-        {
+        { // 플레이어가 죽지 않았다면
             inputVec.x = Input.GetAxisRaw("Horizontal");
             inputVec.y = Input.GetAxisRaw("Vertical");
+            // 키보드 입력 받기
 
             if (GameManager.Instance.isSwimming == true)
-            {
-                rigid.gravityScale = 0;
+            { // 수영중인 상태라면
                 isPlayer_Jump = false;
-                if (breathSlider.value > 0.0f)
-                    breathSlider.value -= Time.deltaTime;
+
+                if (curBreath > 0.0f)
+                    curBreath -= Time.deltaTime;
+                // 호흡 게이지가 0 이상이라면 호흡 게이지 감소
                 else
                     curHealth -= Time.deltaTime;
+                // 호흡 게이지가 0 이하라면 체력 게이지 감소
             }
             else if (GameManager.Instance.isSwimming == false)
-            {
+            { // 수영중인 상태가 아니라면
                 rigid.gravityScale = 5f;
-                breathSlider.value = maxBreath;
-                if (curHealth < healthSlider.maxValue)
+                curBreath = maxBreath;
+                // 중력을 5만큼 주고 호흡 게이지 회복
+                if (curHealth < maxHealth)
                     curHealth += Time.deltaTime;
+                // 최대 체력보다 적다면 체력 게이지 회복
 
                 if (isPlayer_Jump == false)
-                {
+                { // 점프 중이 아니라면
                     rigid.AddForce(Vector2.up * rigid.velocity.y, ForceMode2D.Impulse);
                     isPlayer_Jump = true;
+                    // 현재 속도만큼 점프
                 }
             }
         }
     }
 }
+// 공격력이 늘어나면 크기가 커지는게 좋은가

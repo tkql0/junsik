@@ -11,6 +11,7 @@ public partial class Player
 
     [SerializeField]
     float maxBreath;
+    float curBreath;
 
     [SerializeField]
     float maxExperience;
@@ -27,19 +28,21 @@ public partial class Player
     Slider expSlider;
 
     bool isLv_up;
+    bool isDamage;
+
     [SerializeField]
     GameObject Hit_Obj;
-
     GameObject hit_damage;
 
     void Lv_Up()
-    {
-        expSlider.value = 0;
+    { // 레벨 업
         curExperience = 0;
         PlayerLv++;
         ExpTxt.text = "Lv. " + PlayerLv;
+        // 경험치를 초기화 하고 레벨 업
         isLv_up = false;
-        curHealth = curHealth + 2;
+        maxHealth += 2;
+        // 레벨 업 보상으로 최대 체력 증가
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,14 +50,17 @@ public partial class Player
         if (collision.gameObject.CompareTag("Fish") && isDie == false)
         {
             --GameManager.Instance.re_fish;
+
+            Fish_Enemy fish_exp = collision.GetComponent<Fish_Enemy>();
             collision.gameObject.SetActive(false);
-            curExperience = curExperience + 5;
+            curExperience += fish_exp.player_exp;
         }
 
         if (collision.gameObject.CompareTag("Exp") && isDie == false)
         {
+            Enemy_exp enemy_exp = collision.GetComponent<Enemy_exp>();
             collision.gameObject.SetActive(false);
-            curExperience = curExperience + 10;
+            curExperience += enemy_exp.player_exp;
         }
 
         if (!isDamage)
@@ -69,8 +75,6 @@ public partial class Player
             }
         }
     }
-
-    bool isDamage = false;
 
     IEnumerator OnDamage()
     {

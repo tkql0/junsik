@@ -7,7 +7,7 @@ public enum Obj
     enemy_,
     enemy_search_,
     enemy_attack_,
-    bait_,
+    enemy_exp_,
     fish_,
     player_attack_
 }
