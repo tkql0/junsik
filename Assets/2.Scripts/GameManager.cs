@@ -21,10 +21,14 @@ public class GameManager : MonoSingleTon<GameManager>
 
     public bool isSwimming = false;
 
-    public int player_prize = 0;
     public int re_fish = 0;
+    int jump_count = 0;
 
     public ObjectManager object_manager;
+
+    GameObject Player_Jump = null;
+
+    public GameObject jump;
 
     private void Start()
     {
@@ -36,10 +40,6 @@ public class GameManager : MonoSingleTon<GameManager>
         re_fish = 0;
         // 모든 작업 완료 후 초기화
     }
-
-    GameObject Player_Jump = null;
-
-    public GameObject jump;
 
     private void Update()
     {
@@ -60,8 +60,6 @@ public class GameManager : MonoSingleTon<GameManager>
             Time.timeScale = 0;
         // 게임 일시 정지
     }
-
-    int jump_count = 0;
 
     void SeaLevelPosDisY()
     {

@@ -609,7 +609,6 @@ MonoBehaviour:
   Player: {fileID: 287973073}
   SeaLevel: {fileID: 1476005788}
   GameStart_Panel: {fileID: 201029030}
-  isMove: 0
   isSwimming: 0
   player_prize: 0
   re_fish: 0
@@ -1320,13 +1319,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0306dc00d2b60e7459c7ed93a6540d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 6520508579872335832}
-  time: 0
   Player_Seatch_ange: 7
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  nearTarget: {fileID: 0}
 --- !u!1 &626527733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,12 +1354,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy_prefab: {fileID: 4989662580475751888, guid: d5eec64320aadb0478e8d79080e97d42, type: 3}
   enemy_attack_prefab: {fileID: 5287434963462639674, guid: 50fb3c04a8e34ff42a88d9a4a6faa36e, type: 3}
-  bait_prefab: {fileID: 7345335632136059439, guid: 50501583ba0a4b84caca1658bfb45e10, type: 3}
+  enemy_exp_prefab: {fileID: 4786755856869366158, guid: e4c333e71d4c82149bd2e9774794c6ec, type: 3}
   fish_prefab: {fileID: 5598789360419950795, guid: 6482f9773b038f44ea3771dfbe56eb80, type: 3}
   player_attack_prefab: {fileID: 2198652281003980771, guid: c6a7c91348a3fc946930acee58980c13, type: 3}
   enemy_group: {fileID: 1396671504}
   enemy_attack_group: {fileID: 1617613053}
-  bait_group: {fileID: 1965026380}
+  enemy_exp_group: {fileID: 1965026380}
   fish_group: {fileID: 2018903060}
   player_attack_group: {fileID: 978928057}
   fish: []
@@ -3207,7 +3203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1965026380}
   m_Layer: 0
-  m_Name: bait_group
+  m_Name: enemy_exp_group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3695,11 +3691,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29f5eee735ee9d4c90df3ba1d674d8c, type: 3}
---- !u!4 &6520508579872335832 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 408246245613379242, guid: 6c2ac7266ce4ce744a7118581632d9ae, type: 3}
-  m_PrefabInstance: {fileID: 6906236827275983218}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6906236827275983218
 PrefabInstance:
   m_ObjectHideFlags: 0

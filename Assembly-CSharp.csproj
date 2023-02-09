@@ -62,8 +62,7 @@
     <Compile Include="Assets\2.Scripts\Enemy_Scripts\Enemy_search.cs" />
     <Compile Include="Assets\2.Scripts\Singletone.cs" />
     <Compile Include="Assets\2.Scripts\Sky_Controll.cs" />
-    <Compile Include="Assets\2.Scripts\Silder_set.cs" />
-    <Compile Include="Assets\2.Scripts\Fish_Enemy.cs" />
+    <Compile Include="Assets\2.Scripts\Enemy_Scripts\Fish_Enemy.cs" />
     <Compile Include="Assets\2.Scripts\Start_UI.cs" />
     <Compile Include="Assets\2.Scripts\Relocation.cs" />
     <Compile Include="Assets\2.Scripts\Player_Scripts\Player_Attack_Hit.cs" />

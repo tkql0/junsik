@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Stop_UI : MonoBehaviour
 {
-    public GameObject Stop_Button;
+    [SerializeField]
+    GameObject Stop_Button;
 
     bool Click_count = false;
 

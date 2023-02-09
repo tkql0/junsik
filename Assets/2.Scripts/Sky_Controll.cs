@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Sky_Controll : MonoBehaviour
 {
-    public GameObject enemy_obj;
-    
     private void Start()
     {
         StartCoroutine(spawn());

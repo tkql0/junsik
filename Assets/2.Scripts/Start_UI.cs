@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Start_UI : MonoBehaviour
 {
-    public GameObject GameStart_Panel;
+    [SerializeField]
+    GameObject GameStart_Panel;
 
     public void OnClick()
     {
