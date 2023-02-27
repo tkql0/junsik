@@ -21,6 +21,10 @@ public partial class Player
     [SerializeField]
     Text ExpTxt;
     [SerializeField]
+    Text HpTxt;
+    [SerializeField]
+    Text BpTxt;
+    [SerializeField]
     Slider healthSlider;
     [SerializeField]
     Slider breathSlider;
@@ -42,6 +46,7 @@ public partial class Player
         // 경험치를 초기화 하고 레벨 업
         isLv_up = false;
         maxHealth += 2;
+        //curHealth += 2;
         // 레벨 업 보상으로 최대 체력 증가
     }
 

@@ -15,6 +15,9 @@ public partial class Player : MonoBehaviour
     bool isDie;
     bool isPlayer_Jump;
 
+    public int melee_damage = 5;
+    public int ranged_damage = 5;
+
     public GameObject Danger;
     [SerializeField]
     GameObject GameOver_Panel;
@@ -30,10 +33,6 @@ public partial class Player : MonoBehaviour
         curHealth = maxHealth;
         curBreath = maxBreath;
 
-        healthSlider.maxValue = maxHealth;
-        breathSlider.maxValue = maxBreath;
-        expSlider.maxValue = maxExperience;
-
         healthSlider.value = maxHealth;
         breathSlider.value = maxBreath;
         expSlider.value = 0;
@@ -41,9 +40,8 @@ public partial class Player : MonoBehaviour
 
     private void Update()
     {
-        healthSlider.value = curHealth;
-        breathSlider.value = curBreath;
-        expSlider.value = curExperience;
+        Value_Update();
+        Stats_Update();
 
         if (expSlider.value == 100 && isLv_up == false)
         {
@@ -64,6 +62,9 @@ public partial class Player : MonoBehaviour
 
         if (hit_damage != null)
             Destroy(hit_damage, 0.5f);
+
+        HpTxt.text = (int)curHealth + " / " + maxHealth;
+        BpTxt.text = (int)curBreath + " / " + maxBreath;
     }
 
     private void FixedUpdate()
@@ -102,6 +103,17 @@ public partial class Player : MonoBehaviour
         isPlayer_Jump = false;
         isLv_up = false;
         isDamage = false;
+    }
+
+    void Value_Update()
+    {
+        healthSlider.maxValue = maxHealth;
+        breathSlider.maxValue = maxBreath;
+        expSlider.maxValue = maxExperience;
+
+        healthSlider.value = curHealth;
+        breathSlider.value = curBreath;
+        expSlider.value = curExperience;
     }
 
     public void ReStrat()

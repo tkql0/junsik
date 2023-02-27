@@ -13,27 +13,27 @@ public class Stop_UI : MonoBehaviour
     {
         if (Click_count == false)
         {
-            //enter();
+            enter();
             Click_count = true;
             Time.timeScale = 0;
         }
         else
         {
-            //exit();
+            exit();
             Click_count = false;
             Time.timeScale = 1;
         }
     }
 
-    //public RectTransform stats_ui;
+    public RectTransform stats_ui;
 
-    //void enter()
-    //{
-    //    stats_ui.anchoredPosition = Vector2.zero;
-    //}
+    void enter()
+    {
+        stats_ui.anchoredPosition = Vector2.zero;
+    }
 
-    //void exit()
-    //{
-    //    stats_ui.anchoredPosition = Vector2.down * 1000;
-    //}
+    void exit()
+    {
+        stats_ui.anchoredPosition = Vector2.up * 2000;
+    }
 }
