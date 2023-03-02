@@ -7,7 +7,7 @@ public class Stop_UI : MonoBehaviour
     [SerializeField]
     GameObject Stop_Button;
 
-    bool Click_count = false;
+    public bool Click_count = false;
 
     public void OnStop()
     {

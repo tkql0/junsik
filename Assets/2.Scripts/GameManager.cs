@@ -18,6 +18,7 @@ public class GameManager : MonoSingleTon<GameManager>
 
     public GameObject SeaLevel;
     public GameObject GameStart_Panel;
+    public RectTransform name_input;
 
     public bool isSwimming = false;
 
@@ -29,6 +30,8 @@ public class GameManager : MonoSingleTon<GameManager>
     GameObject Player_Jump = null;
 
     public GameObject jump;
+
+    public Stop_UI stop_;
 
     private void Start()
     {
@@ -43,6 +46,8 @@ public class GameManager : MonoSingleTon<GameManager>
 
     private void Update()
     {
+        OnStop();
+
         if (Player_Jump != null)
             Destroy(Player_Jump, 0.8f);
 
@@ -55,10 +60,16 @@ public class GameManager : MonoSingleTon<GameManager>
             // 생성 후 +1
         }
 
-        if(GameStart_Panel.activeSelf == true)
-            // 게임시작 UI가 켜져있다면
+        if (GameStart_Panel.activeSelf == true)
+        // 게임시작 UI가 켜져있다면
+        {
             Time.timeScale = 0;
-        // 게임 일시 정지
+        }
+        else
+        {
+            if(!stop_.Click_count)
+                Time.timeScale = 1;
+        }
     }
 
     void SeaLevelPosDisY()
@@ -93,4 +104,21 @@ public class GameManager : MonoSingleTon<GameManager>
         fish.transform.position = new Vector3(ranX + Player.transform.position.x, ranY , -1);
         // 플레이어 주변 랜덤한 장소에 경험치 몬스터 생성
     }
+
+    public void OnStop()
+    {
+        if (Player.player_name.Length == 0)
+        {
+            player_name_ui.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            player_name_ui.SetActive(false);
+            if (!stop_.Click_count)
+                Time.timeScale = 1;
+        }
+    }
+
+    public GameObject player_name_ui;
 }
