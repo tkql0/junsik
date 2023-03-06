@@ -11,6 +11,7 @@ public partial class Player : MonoBehaviour
     SpriteRenderer sprite;
 
     public float move_Maxspeed;
+    // 속도를 공격 받을 시 감소 하게
 
     bool isDie;
     bool isPlayer_Jump;

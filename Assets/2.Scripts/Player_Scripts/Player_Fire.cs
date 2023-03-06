@@ -92,7 +92,7 @@ public class Player_Fire : MonoBehaviour
     }
 
     void Auto_Attack()
-    { // 자동 공격
+    { // 자동 공격 // 자동 공격을 뺄까
         if (mouse_click == false && GameManager.Instance.isSwimming == false)
         { // 플레이어가 클릭한 상태가 아니고 수영중이 아니라면
             if (!nearTarget)

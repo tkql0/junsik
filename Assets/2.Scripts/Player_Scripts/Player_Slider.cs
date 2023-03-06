@@ -44,6 +44,7 @@ public partial class Player
         PlayerLv++;
         ExpTxt.text = "Lv. " + PlayerLv;
         // 경험치를 초기화 하고 레벨 업
+        Lv_point += 1;
         isLv_up = false;
         maxHealth += 2;
         //curHealth += 2;
