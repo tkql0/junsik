@@ -48,8 +48,8 @@ public partial class Player
             switch (skill_setting.type)
             {
                 case Type.Giant:
-                    transform.localScale = new Vector3(transform.localScale.x + 1f,
-                        transform.localScale.y + 1f);
+                    transform.localScale = new Vector3(transform.localScale.x + 0.5f,
+                        transform.localScale.y + 0.5f);
                     maxHealth += 2;
                     melee_damage += 1;
                     skill_setting.curLv++;
