@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lance : MonoBehaviour
+public class Attack : MonoBehaviour
 {
     Rigidbody2D rigid;
 
@@ -24,5 +24,6 @@ public class Lance : MonoBehaviour
 
         float DirY = myPos.y - SeaLevelPos.y;
         rigid.drag = DirY <= 0 ? 3 : 1;
+        // 몬스터의 공격이 해수면보다 아래인가? 맞다면 가속 1로 변경
     }
 }
