@@ -40,18 +40,23 @@ public partial class Player
         //GameObject click_skill = EventSystem.current.currentSelectedGameObject;
         // EventSystem.current.currentSelectedGameObject 빈 공간을 누르면 null 메모
 
+        if (skill_setting.curLv >= skill_setting.maxLv)
+            return;
+
         if (Lv_point != 0)
         {
             switch (skill_setting.type)
             {
-                case Type.Dwarf:
-
-                    break;
                 case Type.Giant:
                     transform.localScale = new Vector3(transform.localScale.x + 1f,
                         transform.localScale.y + 1f);
                     maxHealth += 2;
                     melee_damage += 1;
+                    skill_setting.curLv++;
+                    break;
+                case Type.Skin_Breathing:
+                    maxBreath += 2;
+                    skill_setting.curLv++;
                     break;
             }
             Lv_point--;
